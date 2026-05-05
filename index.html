@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ postModal: false, jobTitle: '', company: '', domain: '', intel: '' }">
+<html lang="en" x-data="{ 
+    postModal: false, 
+    jobTitle: '', 
+    company: '', 
+    domain: '', 
+    intel: '',
+    phase: 'Phase 1 Unverified'
+}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,6 +31,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        /* Custom scrollbar for terminal feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; }
         [x-cloak] { display: none !important; }
     </style>
 </head>
@@ -56,12 +67,12 @@
         <aside class="hidden md:block md:col-span-3 space-y-4">
             <div class="li-card p-4 text-center">
                 <div class="w-16 h-16 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-full mx-auto mb-3 shadow-[0_0_15px_rgba(0,242,255,0.3)]"></div>
-                <h2 class="font-bold text-sm">Anonymous User</h2>
+                <h2 class="font-bold text-sm text-white">Anonymous Node</h2>
                 <p class="mono text-[10px] text-gray-500 mt-1 uppercase tracking-widest">Hash ID: a8f3...12z</p>
                 <hr class="my-4 border-[#2a2a2a]">
                 <div class="flex justify-between text-[11px] text-gray-400">
-                    <span>Profile Views</span>
-                    <span class="text-cyan-400">142</span>
+                    <span>Signal Strength</span>
+                    <span class="text-cyan-400">88%</span>
                 </div>
             </div>
         </aside>
@@ -69,25 +80,25 @@
         <!-- Center Feed -->
         <main class="col-span-1 md:col-span-6 space-y-4">
             
-            <!-- Quick Post Trigger -->
+            <!-- Quick Post Box -->
             <div class="li-card p-4">
                 <div class="flex gap-3">
-                    <div class="w-10 h-10 bg-gray-800 rounded-full flex-shrink-0 flex items-center justify-center">
-                        <span class="text-[10px] mono text-gray-500">USR</span>
+                    <div class="w-10 h-10 bg-gray-900 border border-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center">
+                        <span class="text-[10px] mono text-cyan-500">USR</span>
                     </div>
                     <button @click="postModal = true" class="w-full text-left px-4 py-2 bg-transparent border border-[#2a2a2a] rounded-full text-sm text-gray-500 hover:bg-[#1a1a1a] transition-all">
-                        Post an anonymous referral intel...
+                        Broadcast new referral intel...
                     </button>
                 </div>
             </div>
 
-            <!-- Job Listing 1 -->
+            <!-- Existing Job Listing -->
             <div class="li-card overflow-hidden hover:border-cyan-500/50 transition-colors group">
                 <div class="p-4 flex justify-between items-start">
                     <div class="flex gap-3">
                         <div class="w-12 h-12 bg-white rounded-md flex items-center justify-center font-bold text-black text-xl">T</div>
                         <div>
-                            <h4 class="font-bold text-sm hover:underline cursor-pointer">Tesla — AI Ops</h4>
+                            <h4 class="font-bold text-sm text-white">Tesla — AI Ops</h4>
                             <p class="mono text-[10px] text-gray-400 uppercase tracking-tighter">Verified Domain: @tesla.com</p>
                             <p class="text-[10px] text-gray-500 mt-0.5">2 hours ago • <span class="text-cyan-400 italic">Phase 1 Unverified</span></p>
                         </div>
@@ -95,13 +106,13 @@
                 </div>
                 <div class="px-4 pb-2">
                     <h3 class="text-lg font-bold text-white mb-2 leading-tight">Senior Autopilot Protocol Lead</h3>
-                    <p class="text-sm text-gray-300 line-clamp-3">
-                        Hiring for the internal protocol team. We are looking for someone with deep C++ experience and a background in neural network optimization. Remote friendly.
+                    <p class="text-sm text-gray-400 line-clamp-3">
+                        Hiring for the internal protocol team. Seeking deep C++ experience and neural network optimization skills. 
                     </p>
                 </div>
                 <div class="p-4 flex gap-4 border-t border-[#2a2a2a]">
-                    <button class="flex-1 py-2 text-xs font-bold bg-cyan-400 text-black rounded hover:bg-white transition-all uppercase tracking-widest">Request Referral</button>
-                    <button class="px-4 py-2 text-xs font-bold border border-[#2a2a2a] rounded hover:bg-gray-800 transition-all uppercase">Save</button>
+                    <button class="flex-1 py-2 text-[10px] font-bold bg-cyan-400 text-black rounded hover:bg-white transition-all uppercase tracking-widest">Request Referral</button>
+                    <button class="px-4 py-2 text-[10px] font-bold border border-[#2a2a2a] rounded hover:bg-gray-800 transition-all uppercase">Save</button>
                 </div>
             </div>
         </main>
@@ -109,83 +120,87 @@
         <!-- Right Sidebar -->
         <aside class="hidden lg:block lg:col-span-3 space-y-4">
             <div class="li-card p-4">
-                <h3 class="text-xs font-bold mb-4 uppercase text-gray-500 mono tracking-widest">Intelligence News</h3>
+                <h3 class="text-[10px] font-bold mb-4 uppercase text-gray-500 mono tracking-widest italic">Live_Intelligence</h3>
                 <div class="space-y-4 text-xs">
-                    <div>
-                        <p class="font-bold hover:text-cyan-400 cursor-pointer">NVIDIA hiring surge detected</p>
-                        <p class="text-[10px] text-gray-500">1,202 new referrals today</p>
+                    <div class="border-l-2 border-cyan-500 pl-3">
+                        <p class="font-bold text-gray-200">NVIDIA hiring surge</p>
+                        <p class="text-[10px] text-gray-500">1,202 new nodes today</p>
                     </div>
                 </div>
             </div>
-            <footer class="px-4 text-[10px] text-gray-600 space-x-2">
-                <p>© 2026 REFERØ_Z DECENTRALIZED</p>
-            </footer>
         </aside>
     </div>
 
-    <!-- POST JOB MODAL (ALpine.js Controlled) -->
-    <div x-show="postModal" 
-         x-cloak
-         class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0 scale-95"
-         x-transition:enter-end="opacity-100 scale-100">
-        
-        <div @click.away="postModal = false" 
-             class="li-card w-full max-w-2xl bg-[#0a0a0a] border-cyan-500/30 shadow-[0_0_50px_rgba(0,242,255,0.1)] overflow-hidden">
+    <!-- POST JOB MODAL (Alpine Managed) -->
+    <template x-teleport="body">
+        <div x-show="postModal" 
+             x-cloak
+             class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100">
             
-            <!-- Terminal Header -->
-            <div class="bg-[#1a1a1a] px-4 py-2 border-b border-[#2a2a2a] flex justify-between items-center">
-                <span class="text-[10px] mono text-cyan-400 tracking-widest uppercase italic animate-pulse">Initializing_Intel_Broadcast...</span>
-                <button @click="postModal = false" class="text-gray-500 hover:text-white mono text-xs">[ESC]</button>
-            </div>
+            <div @click.away="postModal = false" 
+                 class="li-card w-full max-w-2xl bg-[#0a0a0a] border-cyan-500/30 shadow-[0_0_50px_rgba(0,242,255,0.15)] overflow-hidden">
+                
+                <!-- Terminal Header -->
+                <div class="bg-[#1a1a1a] px-4 py-2 border-b border-[#2a2a2a] flex justify-between items-center">
+                    <span class="text-[10px] mono text-cyan-400 tracking-widest uppercase italic animate-pulse">Initializing_Intel_Broadcast...</span>
+                    <button @click="postModal = false" class="text-gray-500 hover:text-white mono text-xs">[ESC]</button>
+                </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2">
-                <!-- Form Section -->
-                <form class="p-6 space-y-4 border-r border-[#2a2a2a]" @submit.prevent="alert('Intel Transmitted'); postModal = false">
-                    <div>
-                        <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Target Domain</label>
-                        <input type="text" x-model="domain" placeholder="e.g. apple.com" 
-                               class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-cyan-500 outline-none transition-all mono">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Protocol / Role</label>
-                        <input type="text" x-model="jobTitle" placeholder="e.g. Systems Engineer" 
-                               class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-purple-500 outline-none transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Classified Intel</label>
-                        <textarea x-model="intel" rows="4" placeholder="Role requirements..." 
-                                  class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-cyan-500 outline-none transition-all resize-none"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-3 bg-white text-black font-bold uppercase text-xs tracking-widest hover:bg-cyan-400 transition-colors">
-                        Execute Broadcast
-                    </button>
-                </form>
-
-                <!-- Preview Section (Visible on MD+) -->
-                <div class="hidden md:block p-6 bg-[#080808] opacity-60">
-                    <h3 class="text-[10px] uppercase text-gray-600 font-bold mb-4 mono italic">Feed_Preview_Alpha</h3>
-                    <div class="li-card p-4 border-dashed border-gray-700 bg-transparent">
-                        <div class="flex gap-2 mb-3">
-                             <div class="w-8 h-8 bg-gray-800 rounded flex items-center justify-center mono text-xs" x-text="domain ? domain[0].toUpperCase() : '?'"></div>
-                             <div>
-                                <p class="text-[10px] font-bold text-white" x-text="domain || 'Domain.com'"></p>
-                                <p class="text-[8px] text-gray-500 mono" x-text="'Verified: @' + (domain || '---')"></p>
-                             </div>
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <!-- Form Section -->
+                    <form class="p-6 space-y-4 border-r border-[#2a2a2a]" @submit.prevent="alert('Intel Transmitted to Network'); postModal = false">
+                        <div>
+                            <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Target Domain</label>
+                            <input type="text" x-model="domain" placeholder="e.g. apple.com" 
+                                   class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm text-cyan-400 focus:border-cyan-500 outline-none transition-all mono">
                         </div>
-                        <h4 class="text-sm font-bold text-cyan-400" x-text="jobTitle || 'Role Title'"></h4>
-                        <p class="text-[10px] text-gray-400 mt-2 line-clamp-2" x-text="intel || 'Intel data stream pending...'"></p>
+                        <div>
+                            <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Protocol / Role</label>
+                            <input type="text" x-model="jobTitle" placeholder="e.g. Kernel Engineer" 
+                                   class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-purple-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Encrypted Intel (Details)</label>
+                            <textarea x-model="intel" rows="4" placeholder="Stack, YOE, or Referral Bonus details..." 
+                                      class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-cyan-500 outline-none transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                :disabled="!jobTitle || !domain"
+                                class="w-full py-3 bg-white text-black font-bold uppercase text-[10px] tracking-widest hover:bg-cyan-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            Execute Broadcast
+                        </button>
+                    </form>
+
+                    <!-- Live Preview Section -->
+                    <div class="p-6 bg-[#080808] flex flex-col">
+                        <h3 class="text-[9px] uppercase text-gray-600 font-bold mb-4 mono italic">Feed_Preview_Alpha</h3>
+                        
+                        <div class="li-card p-4 border-dashed border-gray-700 bg-transparent opacity-80 scale-95 origin-top">
+                            <div class="flex gap-2 mb-3">
+                                 <div class="w-8 h-8 bg-white rounded flex items-center justify-center mono text-xs font-bold text-black" 
+                                      x-text="domain ? domain[0].toUpperCase() : '?'"></div>
+                                 <div>
+                                    <p class="text-[10px] font-bold text-white" x-text="(domain || 'Domain.com').split('.')[0]"></p>
+                                    <p class="text-[8px] text-gray-500 mono" x-text="'Verified: @' + (domain || '---')"></p>
+                                 </div>
+                            </div>
+                            <h4 class="text-xs font-bold text-cyan-400" x-text="jobTitle || 'Role_Name_Pending'"></h4>
+                            <p class="text-[9px] text-gray-400 mt-2 line-clamp-3 leading-relaxed" x-text="intel || 'Waiting for intel payload...'"></p>
+                        </div>
+
+                        <div class="mt-auto pt-6 text-[9px] text-gray-700 mono leading-tight">
+                            <p>> SYNCING_WITH_NEURAL_NODES...</p>
+                            <p>> ENCRYPTING_PAYLOAD: <span class="text-green-900">SUCCESS</span></p>
+                            <p>> ANONYMITY_SHIELD: <span class="text-green-900">ACTIVE</span></p>
+                        </div>
                     </div>
-                    <p class="mt-4 text-[9px] text-gray-700 mono leading-relaxed">
-                        > SYNCING WITH NEURAL NODES...<br>
-                        > ENCRYPTING PAYLOAD...<br>
-                        > ANONYMITY SHIELD: ACTIVE
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
+    </template>
 
 </body>
 </html>
