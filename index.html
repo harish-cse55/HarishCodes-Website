@@ -3,205 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REFERØ_Z // Professional Glass Feed</title>
+    <title>REFERØ_Z // Clean Professional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0f172a;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(30, 64, 175, 0.2) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.1) 0px, transparent 50%);
-            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b; /* Zinc 950 */
+            color: #fafafa;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* LinkedIn Glass Style */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+        /* The "Clean Glass" look - Minimalist & Smooth */
+        .glass-ui {
+            background: rgba(24, 24, 27, 0.4); /* Zinc 900 at low opacity */
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(39, 39, 42, 1); /* Zinc 800 */
         }
 
         .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(9, 9, 11, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(39, 39, 42, 1);
         }
 
-        .input-glass {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.2s ease;
+        .input-clean {
+            background: rgba(18, 18, 18, 0.5);
+            border: 1px solid rgba(39, 39, 42, 1);
+            transition: all 0.15s ease-in-out;
         }
 
-        .input-glass:focus {
-            background: rgba(0, 0, 0, 0.3);
-            border-color: #38bdf8;
-            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+        .input-clean:focus {
+            border-color: rgba(161, 161, 170, 1);
+            outline: none;
+            background: rgba(24, 24, 27, 0.8);
         }
 
-        .btn-primary {
-            background: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.4);
-            color: #38bdf8;
-            transition: all 0.2s ease;
+        .btn-post {
+            background: #ffffff;
+            color: #000000;
+            transition: opacity 0.2s;
         }
 
-        .btn-primary:hover {
-            background: #38bdf8;
-            color: #0f172a;
+        .btn-post:hover {
+            opacity: 0.9;
+        }
+
+        .company-logo {
+            background: linear-gradient(135deg, #27272a 0%, #09090b 100%);
         }
 
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="min-h-screen pb-12">
+<body class="min-h-screen">
 
-    <!-- Navigation -->
+    <!-- Minimalist Nav -->
     <nav class="sticky top-0 z-50 glass-nav">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <h1 class="text-2xl font-extrabold tracking-tight text-white">REFER<span class="text-sky-400">Ø</span>_Z</h1>
-                <div class="hidden md:flex gap-6 text-sm font-medium text-slate-400">
-                    <a href="#" class="hover:text-sky-400 transition-colors">Home</a>
-                    <a href="#" class="hover:text-sky-400 transition-colors">My Network</a>
-                    <a href="#" class="hover:text-sky-400 transition-colors">Jobs</a>
+        <div class="max-w-5xl mx-auto px-6 h-14 flex justify-between items-center">
+            <div class="flex items-center gap-10">
+                <h1 class="text-lg font-bold tracking-tight">REFERØ_Z</h1>
+                <div class="hidden md:flex gap-6 text-[13px] font-medium text-zinc-400">
+                    <a href="#" class="hover:text-white transition-colors">Feed</a>
+                    <a href="#" class="hover:text-white transition-colors">Nodes</a>
+                    <a href="#" class="hover:text-white transition-colors">Network</a>
                 </div>
             </div>
-            <button @click="postModal = true" class="btn-primary px-5 py-2 rounded-full text-sm font-semibold">
-                Post a Job
-            </button>
+            <div class="flex items-center gap-4">
+                <button @click="postModal = true" class="btn-post text-[13px] font-semibold px-4 py-1.5 rounded-md">
+                    Post Job
+                </button>
+            </div>
         </div>
     </nav>
 
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 mt-8 px-4">
+    <main class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 mt-10 px-6">
         
-        <!-- Left Profile Sidebar (LinkedIn Style) -->
-        <aside class="hidden md:block md:col-span-3 space-y-4">
-            <div class="glass-panel overflow-hidden">
-                <div class="h-16 bg-gradient-to-r from-sky-600 to-indigo-600"></div>
-                <div class="px-4 pb-4">
-                    <div class="w-16 h-16 rounded-full glass-panel border-2 border-slate-900 -mt-8 mb-3 bg-slate-800 flex items-center justify-center font-bold text-xl">A</div>
-                    <h2 class="font-bold text-slate-100">Anonymous Node</h2>
-                    <p class="text-xs text-slate-400 mt-1">Full-stack Developer @ Verified</p>
-                    <div class="mt-4 pt-4 border-t border-white/5 space-y-2">
-                        <div class="flex justify-between text-[11px]">
-                            <span class="text-slate-400">Profile viewers</span>
-                            <span class="text-sky-400 font-bold">42</span>
-                        </div>
-                        <div class="flex justify-between text-[11px]">
-                            <span class="text-slate-400">Referrals given</span>
-                            <span class="text-sky-400 font-bold">12</span>
-                        </div>
+        <!-- Profile Mini-Card -->
+        <aside class="hidden md:block md:col-span-3">
+            <div class="glass-ui rounded-xl p-5">
+                <div class="w-10 h-10 rounded-full bg-zinc-800 mb-4 flex items-center justify-center font-bold text-zinc-400">H</div>
+                <h2 class="text-sm font-semibold">Harish Ramasamy</h2>
+                <p class="text-xs text-zinc-500 mt-1">Software Developer</p>
+                <div class="mt-6 pt-6 border-t border-zinc-800 flex flex-col gap-3">
+                    <div class="flex justify-between text-[12px]">
+                        <span class="text-zinc-500">Active Referrals</span>
+                        <span class="text-zinc-200">14</span>
+                    </div>
+                    <div class="flex justify-between text-[12px]">
+                        <span class="text-zinc-500">Trust Score</span>
+                        <span class="text-zinc-200 font-mono italic">A+</span>
                     </div>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Feed -->
-        <main class="col-span-1 md:col-span-6 space-y-4">
-            <!-- Share Box -->
-            <div class="glass-panel p-4">
-                <div class="flex gap-3">
-                    <div class="w-12 h-12 rounded-full glass-panel flex-shrink-0 flex items-center justify-center font-bold text-slate-400">?</div>
-                    <button @click="postModal = true" class="w-full text-left px-4 py-2 input-glass rounded-full text-sm text-slate-400 hover:bg-white/10 transition-all">
-                        Start a job post...
-                    </button>
-                </div>
+        <!-- Central Feed -->
+        <section class="col-span-1 md:col-span-9 space-y-6">
+            
+            <!-- Minimal Share Box -->
+            <div class="glass-ui rounded-xl p-4 flex items-center gap-4">
+                <div class="w-9 h-9 rounded-full bg-zinc-800 flex-shrink-0"></div>
+                <button @click="postModal = true" class="w-full text-left px-4 py-2 text-sm text-zinc-500 hover:text-zinc-400 transition-colors">
+                    Post a referral opportunity...
+                </button>
             </div>
 
-            <!-- Job Card (LinkedIn Style + Glass) -->
-            <div class="glass-panel p-4 hover:bg-white/[0.07] transition-all cursor-pointer group">
-                <div class="flex justify-between">
-                    <div class="flex gap-3">
-                        <div class="w-12 h-12 rounded bg-white flex items-center justify-center text-slate-900 font-bold text-xl">Z</div>
-                        <div>
-                            <h3 class="font-bold text-slate-100 group-hover:text-sky-400 transition-colors">Software Engineer, Backend</h3>
-                            <p class="text-sm text-slate-300 italic">Zoho Corporation</p>
-                            <p class="text-xs text-slate-500 mt-1">Chennai, TN (Remote) • 4 hours ago</p>
+            <!-- Job Feed Items -->
+            <div class="space-y-4">
+                
+                <!-- Card 1 -->
+                <div class="glass-ui rounded-xl p-6 hover:bg-zinc-900/40 transition-all cursor-pointer">
+                    <div class="flex justify-between items-start">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-lg company-logo border border-zinc-800 flex items-center justify-center text-lg font-bold">Z</div>
+                            <div>
+                                <h3 class="text-[15px] font-semibold text-white">Software Developer</h3>
+                                <p class="text-xs text-zinc-400 mt-0.5">Zoho Corporation • Estancia IT Park</p>
+                                <p class="text-[11px] text-zinc-600 mt-2 font-mono">ID: WOHOO_001</p>
+                            </div>
                         </div>
+                        <span class="text-[11px] text-zinc-500 uppercase tracking-wider">3h ago</span>
                     </div>
-                </div>
-                <div class="mt-4">
-                    <p class="text-sm text-slate-300 leading-relaxed line-clamp-3">
-                        Hiring for the Creator team. We need someone strong in Java and Spring Boot. If you're looking to build scalable apps, hit me up for a referral!
+                    <p class="text-[13px] text-zinc-400 mt-4 leading-relaxed">
+                        Looking for 2x Backend Developers (Java/Spring Boot) for the Glimp project. Must be comfortable with high-scale PostgreSQL deployments.
                     </p>
-                </div>
-                <div class="mt-4 pt-3 border-t border-white/5 flex gap-2">
-                    <button class="btn-primary px-4 py-1.5 rounded-full text-xs font-bold">Request Referral</button>
-                    <button class="px-4 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:bg-white/5 transition-all">Save</button>
-                </div>
-            </div>
-        </main>
-
-        <!-- Right News Sidebar -->
-        <aside class="hidden lg:block lg:col-span-3">
-            <div class="glass-panel p-4">
-                <h3 class="text-sm font-bold text-slate-200 mb-4">Referral News</h3>
-                <div class="space-y-4">
-                    <div class="group cursor-pointer">
-                        <p class="text-xs font-semibold group-hover:text-sky-400 transition-colors">Massive hiring at Zoho</p>
-                        <p class="text-[10px] text-slate-500">1d ago • 456 referrals</p>
-                    </div>
-                    <div class="group cursor-pointer">
-                        <p class="text-xs font-semibold group-hover:text-sky-400 transition-colors">Tech layoffs in 2026 update</p>
-                        <p class="text-[10px] text-slate-500">2h ago • 1,230 readers</p>
+                    <div class="mt-6 flex gap-3">
+                        <button class="text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 px-4 py-1.5 rounded-md transition-colors">Request</button>
+                        <button class="text-xs font-semibold text-zinc-500 hover:text-zinc-300 px-4 py-1.5 transition-colors">Save</button>
                     </div>
                 </div>
+
             </div>
-        </aside>
+        </section>
+    </main>
 
-    </div>
-
-    <!-- POST MODAL -->
+    <!-- CLEAN POST MODAL -->
     <div x-show="postModal" 
          x-cloak
-         class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+         class="fixed inset-0 z-[60] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
          x-transition.opacity>
         
         <div @click.away="postModal = false" 
-             class="glass-panel w-full max-w-xl shadow-2xl overflow-hidden border-white/20">
+             class="glass-ui w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl">
             
-            <div class="px-6 py-4 border-b border-white/10 flex justify-between items-center bg-white/5">
-                <h2 class="text-lg font-bold text-white">Create an anonymous job post</h2>
-                <button @click="postModal = false" class="text-slate-400 hover:text-white text-xl">&times;</button>
+            <div class="px-6 py-4 flex justify-between items-center border-b border-zinc-800">
+                <h2 class="text-sm font-semibold uppercase tracking-widest text-zinc-400">Post Intel</h2>
+                <button @click="postModal = false" class="text-zinc-500 hover:text-white transition-colors">&times;</button>
             </div>
 
-            <form class="p-6 space-y-5" @submit.prevent="postModal = false">
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Company / Domain</label>
-                        <input type="text" x-model="domain" placeholder="e.g. apple.com" 
-                               class="w-full px-4 py-2.5 rounded-lg input-glass text-sm text-white outline-none">
+            <form class="p-8 space-y-6" @submit.prevent="postModal = false">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-bold text-zinc-500 uppercase tracking-tighter">Domain</label>
+                        <input type="text" x-model="domain" placeholder="apple.com" 
+                               class="w-full px-4 py-2 rounded-lg input-clean text-sm">
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Role</label>
-                        <input type="text" x-model="jobTitle" placeholder="e.g. Frontend Dev" 
-                               class="w-full px-4 py-2.5 rounded-lg input-glass text-sm text-white outline-none">
+                    <div class="space-y-2">
+                        <label class="text-[11px] font-bold text-zinc-500 uppercase tracking-tighter">Position</label>
+                        <input type="text" x-model="jobTitle" placeholder="Frontend Eng" 
+                               class="w-full px-4 py-2 rounded-lg input-clean text-sm">
                     </div>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Intel / Description</label>
-                    <textarea rows="4" x-model="intel" placeholder="Add some context... what skills are they looking for?" 
-                              class="w-full px-4 py-2.5 rounded-lg input-glass text-sm text-white outline-none resize-none"></textarea>
+                <div class="space-y-2">
+                    <label class="text-[11px] font-bold text-zinc-500 uppercase tracking-tighter">Classified Intel</label>
+                    <textarea rows="4" x-model="intel" placeholder="Team details, stack, and direct referral tips..." 
+                              class="w-full px-4 py-2 rounded-lg input-clean text-sm resize-none"></textarea>
                 </div>
 
-                <div class="flex items-center gap-2 p-3 bg-sky-400/5 rounded-lg border border-sky-400/20">
-                    <div class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></div>
-                    <p class="text-[10px] text-sky-300 font-medium uppercase tracking-wider">Anonymity Shield Active: No tracking pixels enabled</p>
-                </div>
-
-                <div class="flex justify-end gap-3 pt-2">
-                    <button type="button" @click="postModal = false" class="px-6 py-2 text-sm font-semibold text-slate-400 hover:text-white transition-colors">Cancel</button>
-                    <button type="submit" class="btn-primary px-8 py-2 rounded-full text-sm font-bold shadow-lg shadow-sky-500/20">
-                        Post Intel
-                    </button>
-                </div>
+                <button type="submit" class="w-full btn-post py-2.5 rounded-lg text-sm font-bold shadow-lg">
+                    Broadcast Opportunity
+                </button>
             </form>
         </div>
     </div>
