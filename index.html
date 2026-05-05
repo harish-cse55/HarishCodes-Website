@@ -1,206 +1,142 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ 
-    postModal: false, 
-    jobTitle: '', 
-    company: '', 
-    domain: '', 
-    intel: '',
-    phase: 'Phase 1 Unverified'
-}">
+<html lang="en" x-data="{ postModal: false, jobTitle: '', company: '', domain: '', intel: '' }">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REFERØ_Z // Professional Intel Feed</title>
+    <title>REFERØ_Z // Glass Intel</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #000000;
-            color: #efefef;
+            background: radial-gradient(circle at top right, #1a1a2e, #000000);
+            background-attachment: fixed;
+            color: #ffffff;
         }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .li-card {
-            background-color: #121212;
-            border: 1px solid #2a2a2a;
-            border-radius: 8px;
+        
+        /* Glassmorphism Core */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
         }
-        .gradient-text {
-            background: linear-gradient(90deg, #00f2ff, #bc13fe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        /* Custom scrollbar for terminal feel */
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: #2a2a2a; }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .neon-text {
+            text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);
+        }
+
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-black text-gray-200">
+<body class="min-h-screen">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-[#121212]/80 backdrop-blur-md border-b border-[#2a2a2a] px-4 py-2">
+    <!-- Glass Nav -->
+    <nav class="sticky top-0 z-50 glass-nav px-6 py-4">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <h1 class="text-xl font-bold tracking-tighter gradient-text mono italic">REFERØ_Z</h1>
-                <div class="hidden md:flex gap-6 text-sm font-medium text-gray-400">
-                    <a href="#" class="hover:text-white transition-colors">Home</a>
-                    <a href="#" class="hover:text-white transition-colors">My Referrals</a>
-                    <a href="#" class="hover:text-white transition-colors">Verified Nodes</a>
-                </div>
-            </div>
+            <h1 class="text-2xl font-bold tracking-tighter mono italic neon-text">REFERØ_Z</h1>
             <div class="flex gap-4">
-                <button class="text-xs font-bold text-cyan-400 px-4 py-2 hover:bg-cyan-400/10 rounded-md transition-all">Sign In</button>
-                <button @click="postModal = true" class="text-xs font-bold bg-white text-black px-4 py-2 rounded-md hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] transition-all">
-                    Post Job
+                <button @click="postModal = true" class="glass px-6 py-2 text-sm font-bold hover:bg-white hover:text-black transition-all rounded-full border-cyan-500/50">
+                    + Broadcast Intel
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Layout -->
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 px-4">
+    <!-- Main Feed -->
+    <div class="max-w-4xl mx-auto mt-10 px-4 space-y-6">
         
-        <!-- Left Sidebar -->
-        <aside class="hidden md:block md:col-span-3 space-y-4">
-            <div class="li-card p-4 text-center">
-                <div class="w-16 h-16 bg-gradient-to-tr from-cyan-500 to-purple-500 rounded-full mx-auto mb-3 shadow-[0_0_15px_rgba(0,242,255,0.3)]"></div>
-                <h2 class="font-bold text-sm text-white">Anonymous Node</h2>
-                <p class="mono text-[10px] text-gray-500 mt-1 uppercase tracking-widest">Hash ID: a8f3...12z</p>
-                <hr class="my-4 border-[#2a2a2a]">
-                <div class="flex justify-between text-[11px] text-gray-400">
-                    <span>Signal Strength</span>
-                    <span class="text-cyan-400">88%</span>
-                </div>
-            </div>
-        </aside>
+        <!-- Anonymous Entry Point -->
+        <div class="glass p-6 flex items-center gap-4 cursor-pointer hover:bg-white/5 transition-all" @click="postModal = true">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 blur-[1px]"></div>
+            <span class="text-gray-400 font-medium">Found a job? Leak the info anonymously...</span>
+        </div>
 
-        <!-- Center Feed -->
-        <main class="col-span-1 md:col-span-6 space-y-4">
-            
-            <!-- Quick Post Box -->
-            <div class="li-card p-4">
-                <div class="flex gap-3">
-                    <div class="w-10 h-10 bg-gray-900 border border-[#2a2a2a] rounded-full flex-shrink-0 flex items-center justify-center">
-                        <span class="text-[10px] mono text-cyan-500">USR</span>
-                    </div>
-                    <button @click="postModal = true" class="w-full text-left px-4 py-2 bg-transparent border border-[#2a2a2a] rounded-full text-sm text-gray-500 hover:bg-[#1a1a1a] transition-all">
-                        Broadcast new referral intel...
-                    </button>
-                </div>
-            </div>
-
-            <!-- Existing Job Listing -->
-            <div class="li-card overflow-hidden hover:border-cyan-500/50 transition-colors group">
-                <div class="p-4 flex justify-between items-start">
-                    <div class="flex gap-3">
-                        <div class="w-12 h-12 bg-white rounded-md flex items-center justify-center font-bold text-black text-xl">T</div>
-                        <div>
-                            <h4 class="font-bold text-sm text-white">Tesla — AI Ops</h4>
-                            <p class="mono text-[10px] text-gray-400 uppercase tracking-tighter">Verified Domain: @tesla.com</p>
-                            <p class="text-[10px] text-gray-500 mt-0.5">2 hours ago • <span class="text-cyan-400 italic">Phase 1 Unverified</span></p>
-                        </div>
+        <!-- Sample Listing -->
+        <div class="glass glass-card p-6 space-y-4">
+            <div class="flex justify-between items-start">
+                <div class="flex gap-4">
+                    <div class="w-14 h-14 glass flex items-center justify-center text-2xl font-bold text-cyan-400">G</div>
+                    <div>
+                        <h2 class="text-xl font-bold">L6 Cloud Infrastructure</h2>
+                        <p class="mono text-xs text-cyan-500/80 uppercase">Origin: google.com</p>
                     </div>
                 </div>
-                <div class="px-4 pb-2">
-                    <h3 class="text-lg font-bold text-white mb-2 leading-tight">Senior Autopilot Protocol Lead</h3>
-                    <p class="text-sm text-gray-400 line-clamp-3">
-                        Hiring for the internal protocol team. Seeking deep C++ experience and neural network optimization skills. 
-                    </p>
-                </div>
-                <div class="p-4 flex gap-4 border-t border-[#2a2a2a]">
-                    <button class="flex-1 py-2 text-[10px] font-bold bg-cyan-400 text-black rounded hover:bg-white transition-all uppercase tracking-widest">Request Referral</button>
-                    <button class="px-4 py-2 text-[10px] font-bold border border-[#2a2a2a] rounded hover:bg-gray-800 transition-all uppercase">Save</button>
-                </div>
+                <span class="glass px-3 py-1 text-[10px] mono uppercase tracking-widest text-gray-400">2m ago</span>
             </div>
-        </main>
-
-        <!-- Right Sidebar -->
-        <aside class="hidden lg:block lg:col-span-3 space-y-4">
-            <div class="li-card p-4">
-                <h3 class="text-[10px] font-bold mb-4 uppercase text-gray-500 mono tracking-widest italic">Live_Intelligence</h3>
-                <div class="space-y-4 text-xs">
-                    <div class="border-l-2 border-cyan-500 pl-3">
-                        <p class="font-bold text-gray-200">NVIDIA hiring surge</p>
-                        <p class="text-[10px] text-gray-500">1,202 new nodes today</p>
-                    </div>
-                </div>
-            </div>
-        </aside>
-    </div>
-
-    <!-- POST JOB MODAL (Alpine Managed) -->
-    <template x-teleport="body">
-        <div x-show="postModal" 
-             x-cloak
-             class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
-             x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100">
-            
-            <div @click.away="postModal = false" 
-                 class="li-card w-full max-w-2xl bg-[#0a0a0a] border-cyan-500/30 shadow-[0_0_50px_rgba(0,242,255,0.15)] overflow-hidden">
-                
-                <!-- Terminal Header -->
-                <div class="bg-[#1a1a1a] px-4 py-2 border-b border-[#2a2a2a] flex justify-between items-center">
-                    <span class="text-[10px] mono text-cyan-400 tracking-widest uppercase italic animate-pulse">Initializing_Intel_Broadcast...</span>
-                    <button @click="postModal = false" class="text-gray-500 hover:text-white mono text-xs">[ESC]</button>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2">
-                    <!-- Form Section -->
-                    <form class="p-6 space-y-4 border-r border-[#2a2a2a]" @submit.prevent="alert('Intel Transmitted to Network'); postModal = false">
-                        <div>
-                            <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Target Domain</label>
-                            <input type="text" x-model="domain" placeholder="e.g. apple.com" 
-                                   class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm text-cyan-400 focus:border-cyan-500 outline-none transition-all mono">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Protocol / Role</label>
-                            <input type="text" x-model="jobTitle" placeholder="e.g. Kernel Engineer" 
-                                   class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-purple-500 outline-none transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-[10px] uppercase text-gray-500 font-bold mb-1 mono">Encrypted Intel (Details)</label>
-                            <textarea x-model="intel" rows="4" placeholder="Stack, YOE, or Referral Bonus details..." 
-                                      class="w-full bg-black border border-[#2a2a2a] rounded px-3 py-2 text-sm focus:border-cyan-500 outline-none transition-all resize-none"></textarea>
-                        </div>
-                        <button type="submit" 
-                                :disabled="!jobTitle || !domain"
-                                class="w-full py-3 bg-white text-black font-bold uppercase text-[10px] tracking-widest hover:bg-cyan-400 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                            Execute Broadcast
-                        </button>
-                    </form>
-
-                    <!-- Live Preview Section -->
-                    <div class="p-6 bg-[#080808] flex flex-col">
-                        <h3 class="text-[9px] uppercase text-gray-600 font-bold mb-4 mono italic">Feed_Preview_Alpha</h3>
-                        
-                        <div class="li-card p-4 border-dashed border-gray-700 bg-transparent opacity-80 scale-95 origin-top">
-                            <div class="flex gap-2 mb-3">
-                                 <div class="w-8 h-8 bg-white rounded flex items-center justify-center mono text-xs font-bold text-black" 
-                                      x-text="domain ? domain[0].toUpperCase() : '?'"></div>
-                                 <div>
-                                    <p class="text-[10px] font-bold text-white" x-text="(domain || 'Domain.com').split('.')[0]"></p>
-                                    <p class="text-[8px] text-gray-500 mono" x-text="'Verified: @' + (domain || '---')"></p>
-                                 </div>
-                            </div>
-                            <h4 class="text-xs font-bold text-cyan-400" x-text="jobTitle || 'Role_Name_Pending'"></h4>
-                            <p class="text-[9px] text-gray-400 mt-2 line-clamp-3 leading-relaxed" x-text="intel || 'Waiting for intel payload...'"></p>
-                        </div>
-
-                        <div class="mt-auto pt-6 text-[9px] text-gray-700 mono leading-tight">
-                            <p>> SYNCING_WITH_NEURAL_NODES...</p>
-                            <p>> ENCRYPTING_PAYLOAD: <span class="text-green-900">SUCCESS</span></p>
-                            <p>> ANONYMITY_SHIELD: <span class="text-green-900">ACTIVE</span></p>
-                        </div>
-                    </div>
-                </div>
+            <p class="text-gray-300 leading-relaxed">
+                Hiring for the GCP Core team. Referral bonus is significant. DM with your hash for a direct link. No resumes needed for the first scan.
+            </p>
+            <div class="flex gap-3 pt-2">
+                <button class="glass px-4 py-2 text-xs font-bold hover:border-cyan-400 transition-all uppercase tracking-tighter">Get Referral</button>
+                <button class="glass px-4 py-2 text-xs font-bold hover:border-purple-400 transition-all uppercase tracking-tighter">Save</button>
             </div>
         </div>
-    </template>
+
+    </div>
+
+    <!-- GLASS MODAL: POST A JOB -->
+    <div x-show="postModal" 
+         x-cloak
+         class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-90"
+         x-transition:enter-end="opacity-100 scale-100">
+        
+        <div @click.away="postModal = false" 
+             class="glass w-full max-w-lg p-8 shadow-2xl relative border-white/10">
+            
+            <button @click="postModal = false" class="absolute top-4 right-4 text-gray-500 hover:text-white mono font-bold">X</button>
+            
+            <h2 class="text-2xl font-bold mb-6 italic tracking-tight">New Intel Entry</h2>
+            
+            <form class="space-y-5" @submit.prevent="postModal = false">
+                <div>
+                    <label class="block text-[10px] uppercase font-bold text-cyan-500 mb-2 mono">Company Domain</label>
+                    <input type="text" x-model="domain" placeholder="e.g. spacex.com" 
+                           class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-cyan-500 transition-all font-mono text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] uppercase font-bold text-purple-500 mb-2 mono">Role Title</label>
+                    <input type="text" x-model="jobTitle" placeholder="e.g. Protocol Lead" 
+                           class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-purple-500 transition-all text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] uppercase font-bold text-gray-500 mb-2 mono">Job Intel (Anonymous Details)</label>
+                    <textarea x-model="intel" rows="4" placeholder="What's the tea? Stack, Salary, or Tips..." 
+                              class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-white/30 transition-all text-sm resize-none"></textarea>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-4 glass bg-cyan-500/10 text-cyan-400 font-bold uppercase text-xs tracking-[0.2em] hover:bg-cyan-500 hover:text-black transition-all rounded-xl border-cyan-500/40">
+                    Broadcast to Network
+                </button>
+            </form>
+            
+            <p class="mt-6 text-center text-[10px] text-gray-500 mono uppercase">
+                Anonymity Shield: 100% Active // No data logged
+            </p>
+        </div>
+    </div>
 
 </body>
 </html>
