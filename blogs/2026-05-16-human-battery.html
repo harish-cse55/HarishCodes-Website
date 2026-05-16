@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Human Battery | hariscodes.in</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-glow {
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      background: rgba(59,130,246,0.10);
+      filter: blur(180px);
+      border-radius: 9999px;
+      top: -250px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-glow"></div>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+
+      <a href="../index.html" class="text-2xl font-bold tracking-tight">
+        hariscodes<span class="text-zinc-500">.in</span>
+      </a>
+
+      <a href="../index.html" class="text-sm text-zinc-400 hover:text-white transition">
+        ← Back Home
+      </a>
+    </div>
+  </header>
+
+  <!-- BLOG CONTENT -->
+  <main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-24">
+
+    <!-- CATEGORY -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-300 mb-8">
+      AI Concept • 2026-05-16
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="text-4xl sm:text-6xl font-bold leading-tight tracking-tight max-w-4xl">
+      Phones warn at 10% battery.
+      Humans don’t.
+    </h1>
+
+    <!-- SUBTITLE -->
+    <p class="mt-8 text-lg sm:text-xl text-zinc-400 leading-relaxed max-w-3xl">
+      What if technology could estimate burnout, stress and emotional exhaustion before people completely crash?
+    </p>
+
+    <!-- HERO IMAGE -->
+    <div class="mt-14 rounded-[32px] overflow-hidden border border-white/10 glass">
+      <img
+        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400&auto=format&fit=crop"
+        class="w-full h-[260px] sm:h-[500px] object-cover"
+      />
+    </div>
+
+    <!-- ARTICLE -->
+    <article class="mt-16 space-y-12">
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6">The Problem</h2>
+
+        <p class="text-zinc-400 text-lg leading-relaxed">
+          Phones, laptops and smartwatches constantly warn us when energy is running low.
+          Humans don’t have that luxury.
+        </p>
+
+        <p class="text-zinc-400 text-lg leading-relaxed mt-6">
+          Most people recognize burnout only after exhaustion, emotional overload,
+          productivity collapse or complete mental fatigue.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6">The Concept</h2>
+
+        <div class="glass rounded-3xl p-8">
+          <p class="text-2xl font-semibold leading-relaxed">
+            Human Battery → emotional energy tracking system.
+          </p>
+        </div>
+
+        <p class="text-zinc-400 text-lg leading-relaxed mt-8">
+          The idea is not medical diagnosis.
+          It’s behavioral estimation.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6">Possible Signals</h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+          <div class="glass rounded-2xl p-6">
+            <h3 class="font-semibold text-xl mb-3">Behavioral Data</h3>
+            <ul class="space-y-3 text-zinc-400">
+              <li>• Sleep quality</li>
+              <li>• Screen time</li>
+              <li>• Notification overload</li>
+              <li>• Calendar stress</li>
+            </ul>
+          </div>
+
+          <div class="glass rounded-2xl p-6">
+            <h3 class="font-semibold text-xl mb-3">Cognitive Signals</h3>
+            <ul class="space-y-3 text-zinc-400">
+              <li>• Context switching</li>
+              <li>• Typing patterns</li>
+              <li>• Social exhaustion</li>
+              <li>• Late-night activity</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6">Why It Matters</h2>
+
+        <p class="text-zinc-400 text-lg leading-relaxed">
+          The future of technology may not just optimize productivity.
+          It may help humans understand their own mental and emotional energy better.
+        </p>
+      </section>
+
+    </article>
+
+  </main>
+
+</body>
+</html>
