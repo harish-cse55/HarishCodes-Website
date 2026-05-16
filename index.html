@@ -1,185 +1,205 @@
-<!DOCTYPE html>
-<html lang="en" x-data="{ postModal: false, jobTitle: '', domain: '', intel: '' }">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REFERØ_Z // Clean Professional</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #09090b; /* Zinc 950 */
-            color: #fafafa;
-            -webkit-font-smoothing: antialiased;
-        }
+export default function HarisCodesDashboard() {
+  const concepts = [
+    {
+      title: "SafeRoute TN",
+      description:
+        "Safety-first navigation concept focused on reducing silent anxiety during travel.",
+      category: "Civic Tech",
+      hook: "Fastest route ≠ safest route",
+    },
+    {
+      title: "Human Battery",
+      description:
+        "An emotional energy tracking concept that estimates burnout before people crash.",
+      category: "AI Concept",
+      hook: "Phones warn at 10% battery. Humans don’t.",
+    },
+    {
+      title: "Emotional Weather",
+      description:
+        "A future system visualizing crowd stress, burnout and emotional overload across cities.",
+      category: "Future Systems",
+      hook: "What if technology could predict burnout too?",
+    },
+    {
+      title: "Public Trust Score",
+      description:
+        "Infrastructure transparency system for roads, lighting, drainage and public systems.",
+      category: "Public Infrastructure",
+      hook: "What if cities had trust scores too?",
+    },
+  ];
 
-        /* The "Clean Glass" look - Minimalist & Smooth */
-        .glass-ui {
-            background: rgba(24, 24, 27, 0.4); /* Zinc 900 at low opacity */
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(39, 39, 42, 1); /* Zinc 800 */
-        }
+  return (
+    <div className="min-h-screen bg-black text-white overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-500/10 blur-[180px] rounded-full" />
 
-        .glass-nav {
-            background: rgba(9, 9, 11, 0.7);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(39, 39, 42, 1);
-        }
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 border-b border-white/10 backdrop-blur-xl bg-black/70">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight">
+              hariscodes<span className="text-zinc-500">.in</span>
+            </h1>
+          </div>
 
-        .input-clean {
-            background: rgba(18, 18, 18, 0.5);
-            border: 1px solid rgba(39, 39, 42, 1);
-            transition: all 0.15s ease-in-out;
-        }
+          <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400">
+            <a href="#" className="hover:text-white transition-colors">
+              Concepts
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Blogs
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Future Systems
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              About
+            </a>
+          </nav>
 
-        .input-clean:focus {
-            border-color: rgba(161, 161, 170, 1);
-            outline: none;
-            background: rgba(24, 24, 27, 0.8);
-        }
-
-        .btn-post {
-            background: #ffffff;
-            color: #000000;
-            transition: opacity 0.2s;
-        }
-
-        .btn-post:hover {
-            opacity: 0.9;
-        }
-
-        .company-logo {
-            background: linear-gradient(135deg, #27272a 0%, #09090b 100%);
-        }
-
-        [x-cloak] { display: none !important; }
-    </style>
-</head>
-<body class="min-h-screen">
-
-    <!-- Minimalist Nav -->
-    <nav class="sticky top-0 z-50 glass-nav">
-        <div class="max-w-5xl mx-auto px-6 h-14 flex justify-between items-center">
-            <div class="flex items-center gap-10">
-                <h1 class="text-lg font-bold tracking-tight">REFERØ_Z</h1>
-                <div class="hidden md:flex gap-6 text-[13px] font-medium text-zinc-400">
-                    <a href="#" class="hover:text-white transition-colors">Feed</a>
-                    <a href="#" class="hover:text-white transition-colors">Nodes</a>
-                    <a href="#" class="hover:text-white transition-colors">Network</a>
-                </div>
-            </div>
-            <div class="flex items-center gap-4">
-                <button @click="postModal = true" class="btn-post text-[13px] font-semibold px-4 py-1.5 rounded-md">
-                    Post Job
-                </button>
-            </div>
+          <button className="px-5 py-2 rounded-xl bg-white text-black text-sm font-semibold hover:scale-[1.02] transition-all">
+            Explore
+          </button>
         </div>
-    </nav>
+      </header>
 
-    <main class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 mt-10 px-6">
-        
-        <!-- Profile Mini-Card -->
-        <aside class="hidden md:block md:col-span-3">
-            <div class="glass-ui rounded-xl p-5">
-                <div class="w-10 h-10 rounded-full bg-zinc-800 mb-4 flex items-center justify-center font-bold text-zinc-400">H</div>
-                <h2 class="text-sm font-semibold">Harish Ramasamy</h2>
-                <p class="text-xs text-zinc-500 mt-1">Software Developer</p>
-                <div class="mt-6 pt-6 border-t border-zinc-800 flex flex-col gap-3">
-                    <div class="flex justify-between text-[12px]">
-                        <span class="text-zinc-500">Active Referrals</span>
-                        <span class="text-zinc-200">14</span>
-                    </div>
-                    <div class="flex justify-between text-[12px]">
-                        <span class="text-zinc-500">Trust Score</span>
-                        <span class="text-zinc-200 font-mono italic">A+</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
+      {/* Hero Section */}
+      <section className="relative max-w-7xl mx-auto px-6 pt-28 pb-20">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-zinc-300 mb-8">
+            Future concepts • Product thinking • Human-centered systems
+          </div>
 
-        <!-- Central Feed -->
-        <section class="col-span-1 md:col-span-9 space-y-6">
-            
-            <!-- Minimal Share Box -->
-            <div class="glass-ui rounded-xl p-4 flex items-center gap-4">
-                <div class="w-9 h-9 rounded-full bg-zinc-800 flex-shrink-0"></div>
-                <button @click="postModal = true" class="w-full text-left px-4 py-2 text-sm text-zinc-500 hover:text-zinc-400 transition-colors">
-                    Post a referral opportunity...
-                </button>
-            </div>
+          <h2 className="text-5xl md:text-7xl font-bold leading-[1.05] tracking-tight">
+            Technology concepts for invisible human problems.
+          </h2>
 
-            <!-- Job Feed Items -->
-            <div class="space-y-4">
-                
-                <!-- Card 1 -->
-                <div class="glass-ui rounded-xl p-6 hover:bg-zinc-900/40 transition-all cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-lg company-logo border border-zinc-800 flex items-center justify-center text-lg font-bold">Z</div>
-                            <div>
-                                <h3 class="text-[15px] font-semibold text-white">Software Developer</h3>
-                                <p class="text-xs text-zinc-400 mt-0.5">Zoho Corporation • Estancia IT Park</p>
-                                <p class="text-[11px] text-zinc-600 mt-2 font-mono">ID: WOHOO_001</p>
-                            </div>
-                        </div>
-                        <span class="text-[11px] text-zinc-500 uppercase tracking-wider">3h ago</span>
-                    </div>
-                    <p class="text-[13px] text-zinc-400 mt-4 leading-relaxed">
-                        Looking for 2x Backend Developers (Java/Spring Boot) for the Glimp project. Must be comfortable with high-scale PostgreSQL deployments.
-                    </p>
-                    <div class="mt-6 flex gap-3">
-                        <button class="text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 px-4 py-1.5 rounded-md transition-colors">Request</button>
-                        <button class="text-xs font-semibold text-zinc-500 hover:text-zinc-300 px-4 py-1.5 transition-colors">Save</button>
-                    </div>
-                </div>
+          <p className="mt-8 text-lg md:text-xl text-zinc-400 leading-relaxed max-w-3xl">
+            Exploring civic-tech, emotional UX, AI concepts, future systems,
+            and real-world product thinking through visual concepts and
+            technical breakdowns.
+          </p>
 
-            </div>
-        </section>
-    </main>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <button className="px-7 py-3 rounded-2xl bg-white text-black font-semibold hover:scale-[1.02] transition-all">
+              Explore Concepts
+            </button>
 
-    <!-- CLEAN POST MODAL -->
-    <div x-show="postModal" 
-         x-cloak
-         class="fixed inset-0 z-[60] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm"
-         x-transition.opacity>
-        
-        <div @click.away="postModal = false" 
-             class="glass-ui w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl">
-            
-            <div class="px-6 py-4 flex justify-between items-center border-b border-zinc-800">
-                <h2 class="text-sm font-semibold uppercase tracking-widest text-zinc-400">Post Intel</h2>
-                <button @click="postModal = false" class="text-zinc-500 hover:text-white transition-colors">&times;</button>
-            </div>
-
-            <form class="p-8 space-y-6" @submit.prevent="postModal = false">
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-[11px] font-bold text-zinc-500 uppercase tracking-tighter">Domain</label>
-                        <input type="text" x-model="domain" placeholder="apple.com" 
-                               class="w-full px-4 py-2 rounded-lg input-clean text-sm">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-[11px] font-bold text-zinc-500 uppercase tracking-tighter">Position</label>
-                        <input type="text" x-model="jobTitle" placeholder="Frontend Eng" 
-                               class="w-full px-4 py-2 rounded-lg input-clean text-sm">
-                    </div>
-                </div>
-
-                <div class="space-y-2">
-                    <label class="text-[11px] font-bold text-zinc-500 uppercase tracking-tighter">Classified Intel</label>
-                    <textarea rows="4" x-model="intel" placeholder="Team details, stack, and direct referral tips..." 
-                              class="w-full px-4 py-2 rounded-lg input-clean text-sm resize-none"></textarea>
-                </div>
-
-                <button type="submit" class="w-full btn-post py-2.5 rounded-lg text-sm font-bold shadow-lg">
-                    Broadcast Opportunity
-                </button>
-            </form>
+            <button className="px-7 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+              Read Blogs
+            </button>
+          </div>
         </div>
+      </section>
+
+      {/* Featured Concepts */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <div className="flex items-center justify-between mb-10">
+          <div>
+            <h3 className="text-3xl font-bold tracking-tight">
+              Featured Concepts
+            </h3>
+            <p className="text-zinc-500 mt-2">
+              Reimagining everyday experiences through product thinking.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {concepts.map((concept, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/50 backdrop-blur-xl p-8 hover:border-white/20 transition-all duration-300"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs uppercase tracking-[0.2em] text-zinc-500">
+                    {concept.category}
+                  </span>
+
+                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-zinc-400">
+                    ↗
+                  </div>
+                </div>
+
+                <h4 className="text-2xl font-bold tracking-tight mb-4">
+                  {concept.title}
+                </h4>
+
+                <p className="text-zinc-400 leading-relaxed mb-8">
+                  {concept.description}
+                </p>
+
+                <div className="rounded-2xl border border-white/10 bg-black/40 p-5 mb-8">
+                  <p className="text-xl font-semibold leading-relaxed">
+                    “{concept.hook}”
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <button className="px-5 py-2.5 rounded-xl bg-white text-black text-sm font-semibold hover:scale-[1.02] transition-all">
+                    View Concept
+                  </button>
+
+                  <button className="px-5 py-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm transition-all">
+                    Technical Breakdown
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Product Thinking Section */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <div className="rounded-[40px] border border-white/10 bg-zinc-900/40 backdrop-blur-2xl p-10 md:p-16 overflow-hidden relative">
+          <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-blue-500/10 blur-[120px] rounded-full" />
+
+          <div className="relative z-10 max-w-4xl">
+            <span className="text-sm uppercase tracking-[0.25em] text-zinc-500">
+              Product Thinking
+            </span>
+
+            <h3 className="mt-6 text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+              The best product ideas are often hidden inside everyday frustrations.
+            </h3>
+
+            <p className="mt-6 text-lg text-zinc-400 leading-relaxed">
+              Most successful systems don’t just optimize speed. They reduce
+              uncertainty, confusion, anxiety and invisible emotional friction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/10 py-10">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h4 className="text-xl font-bold">hariscodes.in</h4>
+            <p className="text-zinc-500 mt-2 text-sm">
+              Future concepts • Human-centered systems • Product thinking
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6 text-sm text-zinc-500">
+            <a href="#" className="hover:text-white transition-colors">
+              LinkedIn
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              GitHub
+            </a>
+            <a href="#" className="hover:text-white transition-colors">
+              Contact
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
-
-</body>
-</html>
+  );
+}
