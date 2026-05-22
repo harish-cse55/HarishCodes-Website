@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Could Digital Voting Ever Feel Trustworthy? | hariscodes.in</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body{
+      background:#f7f8fc;
+      color:#111827;
+      overflow-x:hidden;
+    }
+
+    .glass{
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      border:1px solid rgba(0,0,0,0.05);
+    }
+
+    .hero-bg{
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+      radial-gradient(circle at top left, rgba(99,102,241,0.12), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(59,130,246,0.10), transparent 35%);
+    }
+
+    .gradient-text{
+      background: linear-gradient(to right,#4338ca,#2563eb);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .phone{
+      border-radius:40px;
+      overflow:hidden;
+      border:8px solid #111827;
+      background:white;
+      box-shadow:0 25px 60px rgba(0,0,0,0.15);
+    }
+
+    .step-number{
+      width:50px;
+      height:50px;
+      border-radius:999px;
+      background:#4f46e5;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      font-size:18px;
+      flex-shrink:0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="hero-bg"></div>
+
+<!-- NAVBAR -->
+
+<nav class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
+
+  <a href="../index.html" class="text-2xl font-bold tracking-tight">
+    hariscodes<span class="text-indigo-600">.in</span>
+  </a>
+
+  <a href="../index.html" class="text-sm text-gray-500 hover:text-black transition">
+    ← Back Home
+  </a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-24">
+
+  <div class="max-w-5xl">
+
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-[0.25em] mb-8">
+      Future Governance • Civic-Tech • Digital Trust
+    </div>
+
+    <h1 class="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-[0.92] tracking-tight">
+
+      India trusted UPI
+
+      <span class="block gradient-text mt-3">
+        with money.
+      </span>
+
+      <span class="block mt-3">
+        Could we someday trust digital voting too?
+      </span>
+
+    </h1>
+
+    <p class="mt-10 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-3xl">
+      Exploring a future-ready digital voting system inspired by UPI-grade trust, identity verification and transparent public infrastructure.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- MOCKUP SECTION -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- PHONE 1 -->
+
+    <div class="phone">
+
+      <div class="p-6">
+
+        <div class="flex items-center justify-between mb-8">
+
+          <div>
+
+            <p class="text-sm text-gray-500">
+              DigiLocker Verification
+            </p>
+
+            <h3 class="font-bold text-xl mt-1">
+              Verify Identity
+            </h3>
+
+          </div>
+
+          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-2xl">
+            🪪
+          </div>
+
+        </div>
+
+        <div class="space-y-4">
+
+          <div class="bg-gray-100 rounded-2xl p-4">
+            <p class="text-sm text-gray-500">
+              Aadhaar Number
+            </p>
+
+            <p class="font-semibold mt-1">
+              XXXX XXXX 5678
+            </p>
+          </div>
+
+          <div class="bg-gray-100 rounded-2xl p-4">
+            <p class="text-sm text-gray-500">
+              Mobile Verification
+            </p>
+
+            <p class="font-semibold mt-1">
+              OTP Verified
+            </p>
+          </div>
+
+        </div>
+
+        <button class="w-full mt-8 bg-indigo-600 text-white py-4 rounded-2xl font-semibold">
+          Continue
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- PHONE 2 -->
+
+    <div class="phone">
+
+      <div class="p-6">
+
+        <div class="flex items-center justify-between mb-8">
+
+          <div>
+
+            <p class="text-sm text-gray-500">
+              Authentication
+            </p>
+
+            <h3 class="font-bold text-xl mt-1">
+              Biometric Scan
+            </h3>
+
+          </div>
+
+          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-2xl">
+            🔒
+          </div>
+
+        </div>
+
+        <div class="h-[280px] flex flex-col items-center justify-center">
+
+          <div class="w-40 h-40 rounded-full bg-indigo-50 flex items-center justify-center text-7xl">
+            👆
+          </div>
+
+          <p class="mt-8 text-gray-500 text-center">
+            Place your finger on the sensor to authenticate securely.
+          </p>
+
+        </div>
+
+        <div class="bg-green-50 border border-green-100 rounded-2xl p-4 text-green-700 text-center font-medium">
+          Identity Verified Successfully
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PHONE 3 -->
+
+    <div class="phone">
+
+      <div class="p-6">
+
+        <div class="flex items-center justify-between mb-8">
+
+          <div>
+
+            <p class="text-sm text-gray-500">
+              Elections 2026
+            </p>
+
+            <h3 class="font-bold text-xl mt-1">
+              Cast Your Vote
+            </h3>
+
+          </div>
+
+          <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-2xl">
+            🗳️
+          </div>
+
+        </div>
+
+        <div class="space-y-4">
+
+          <div class="border-2 border-indigo-500 rounded-2xl p-4 flex items-center justify-between">
+            <div>
+              <p class="font-semibold">
+                Candidate A
+              </p>
+
+              <p class="text-sm text-gray-500">
+                Independent
+              </p>
+            </div>
+
+            <div class="w-5 h-5 rounded-full border-4 border-indigo-500"></div>
+          </div>
+
+          <div class="border rounded-2xl p-4">
+            <p class="font-semibold">
+              Candidate B
+            </p>
+          </div>
+
+          <div class="border rounded-2xl p-4">
+            <p class="font-semibold">
+              Candidate C
+            </p>
+          </div>
+
+        </div>
+
+        <button class="w-full mt-8 bg-indigo-600 text-white py-4 rounded-2xl font-semibold">
+          Confirm Vote
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WHY -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="glass rounded-[40px] p-8 sm:p-14">
+
+    <div class="max-w-4xl">
+
+      <span class="text-sm uppercase tracking-[0.25em] text-indigo-600">
+        The Idea
+      </span>
+
+      <h2 class="mt-5 text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+        What if voting became as simple and trusted as UPI?
+      </h2>
+
+      <p class="mt-8 text-lg text-gray-600 leading-relaxed">
+        India already operates one of the world’s largest real-time digital payment systems.
+        Millions trust UPI daily for secure financial transactions.
+      </p>
+
+      <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+        This concept explores whether similar trust infrastructure could someday support secure and transparent digital voting systems.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- HOW IT COULD WORK -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="text-center mb-16">
+
+    <span class="text-sm uppercase tracking-[0.25em] text-indigo-600">
+      System Flow
+    </span>
+
+    <h2 class="mt-5 text-4xl sm:text-5xl font-bold tracking-tight">
+      How it could work.
+    </h2>
+
+  </div>
+
+  <div class="space-y-8">
+
+    <div class="glass rounded-[32px] p-8 flex gap-6 items-start">
+
+      <div class="step-number">
+        1
+      </div>
+
+      <div>
+
+        <h3 class="text-2xl font-bold">
+          Identity Verification
+        </h3>
+
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Users authenticate using government-backed identity systems like Aadhaar and DigiLocker verification.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="glass rounded-[32px] p-8 flex gap-6 items-start">
+
+      <div class="step-number">
+        2
+      </div>
+
+      <div>
+
+        <h3 class="text-2xl font-bold">
+          Device Authentication
+        </h3>
+
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Similar to secure UPI flows, device-level trust and biometric authentication add an extra layer of security.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="glass rounded-[32px] p-8 flex gap-6 items-start">
+
+      <div class="step-number">
+        3
+      </div>
+
+      <div>
+
+        <h3 class="text-2xl font-bold">
+          Encrypted Vote Token
+        </h3>
+
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Each vote session generates a secure one-time encrypted token to prevent duplicate voting.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="glass rounded-[32px] p-8 flex gap-6 items-start">
+
+      <div class="step-number">
+        4
+      </div>
+
+      <div>
+
+        <h3 class="text-2xl font-bold">
+          Transparent Audit System
+        </h3>
+
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Public audit logs and verification layers help maintain transparency and public confidence.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- TRUST -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="bg-indigo-600 text-white rounded-[40px] p-10 sm:p-16 overflow-hidden relative">
+
+    <div class="absolute right-0 top-0 w-[300px] h-[300px] bg-white/10 blur-[120px] rounded-full"></div>
+
+    <div class="relative z-10 max-w-4xl">
+
+      <span class="text-sm uppercase tracking-[0.25em] text-indigo-200">
+        Biggest Challenge
+      </span>
+
+      <h2 class="mt-6 text-4xl sm:text-6xl font-bold tracking-tight leading-tight">
+
+        The hardest part of digital voting
+
+        <span class="block mt-3">
+          may not be technology.
+        </span>
+
+        <span class="block mt-3 text-indigo-200">
+          It may be public trust.
+        </span>
+
+      </h2>
+
+      <p class="mt-8 text-lg text-indigo-100 leading-relaxed max-w-3xl">
+        Building secure systems is possible.
+        Building public confidence at national scale is the real challenge.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="border-t border-black/5 py-10">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+
+    <div>
+
+      <h3 class="text-xl font-bold">
+        hariscodes.in
+      </h3>
+
+      <p class="text-gray-500 mt-2 text-sm">
+        Future systems • Product thinking • Civic-tech
+      </p>
+
+    </div>
+
+    <div class="flex gap-6 text-sm text-gray-500">
+
+      <a href="https://www.linkedin.com/in/harish-r-746089222/?_l=en_US" target="_blank" class="hover:text-black transition">
+        LinkedIn
+      </a>
+
+      <a href="../about.html" class="hover:text-black transition">
+        About
+      </a>
+
+      <a href="mailto:yourmail@gmail.com" class="hover:text-black transition">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
