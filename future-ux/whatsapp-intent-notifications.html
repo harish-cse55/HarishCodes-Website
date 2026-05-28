@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>WhatsApp Intent Notifications | hariscodes.in</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      font-family:'Plus Jakarta Sans',sans-serif;
+    }
+
+    body{
+      background:#030712;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .hero-bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      background:
+      radial-gradient(circle at top left, rgba(16,185,129,0.12), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(59,130,246,0.12), transparent 35%),
+      #030712;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(14px);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .gradient-text{
+      background:linear-gradient(to right,#34d399,#60a5fa);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .phone{
+      border-radius:40px;
+      overflow:hidden;
+      background:#111827;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 25px 60px rgba(0,0,0,0.45);
+    }
+
+    .tag{
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      width:fit-content;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="hero-bg"></div>
+
+<!-- NAVBAR -->
+
+<nav class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between relative z-10">
+
+  <a href="../index.html" class="text-2xl font-bold tracking-tight">
+    hariscodes<span class="text-green-400">.in</span>
+  </a>
+
+  <a href="../index.html" class="text-sm text-zinc-500 hover:text-white transition">
+    ← Back Home
+  </a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 sm:pt-24 pb-24">
+
+  <div class="max-w-5xl">
+
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/20 bg-green-500/10 text-green-400 text-xs font-bold uppercase tracking-[0.25em] mb-8">
+      Messaging UX • AI • Mental Clarity
+    </div>
+
+    <h1 class="text-5xl sm:text-6xl md:text-8xl font-extrabold leading-[0.92] tracking-tight">
+
+      What if WhatsApp
+
+      <span class="block gradient-text mt-3">
+        understood message urgency?
+      </span>
+
+    </h1>
+
+    <p class="mt-10 text-lg sm:text-xl text-zinc-400 leading-relaxed max-w-3xl">
+      Exploring a future where messaging apps prioritize mental clarity instead of treating every notification equally.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- APP MOCKUP -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+    <!-- LEFT -->
+
+    <div>
+
+      <span class="text-sm uppercase tracking-[0.25em] text-green-400">
+        The Problem
+      </span>
+
+      <h2 class="mt-5 text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
+
+        Not every notification
+        deserves the same urgency.
+
+      </h2>
+
+      <p class="mt-8 text-lg text-zinc-400 leading-relaxed">
+
+        Today, messaging apps treat:
+        memes, work messages, emergencies and casual chats almost the same.
+
+      </p>
+
+      <p class="mt-6 text-lg text-zinc-400 leading-relaxed">
+
+        The result?
+        Notification overload, anxiety and missed important conversations.
+
+      </p>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="phone glass p-6">
+
+      <div class="flex items-center justify-between mb-8">
+
+        <div>
+
+          <p class="text-sm text-zinc-500">
+            WhatsApp Concept
+          </p>
+
+          <h3 class="font-bold text-2xl mt-1">
+            Intent Notifications
+          </h3>
+
+        </div>
+
+        <div class="w-12 h-12 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-2xl">
+          💬
+        </div>
+
+      </div>
+
+      <!-- CHAT -->
+
+      <div class="space-y-4">
+
+        <div class="bg-zinc-900 rounded-2xl p-4 flex items-center justify-between">
+
+          <div>
+
+            <p class="font-semibold">
+              Amma
+            </p>
+
+            <p class="text-sm text-zinc-500 mt-1">
+              Call me once free
+            </p>
+
+          </div>
+
+          <div class="tag bg-red-500/10 text-red-400 border border-red-500/20">
+            Urgent
+          </div>
+
+        </div>
+
+        <div class="bg-zinc-900 rounded-2xl p-4 flex items-center justify-between">
+
+          <div>
+
+            <p class="font-semibold">
+              Office Group
+            </p>
+
+            <p class="text-sm text-zinc-500 mt-1">
+              Meeting moved to 4 PM
+            </p>
+
+          </div>
+
+          <div class="tag bg-blue-500/10 text-blue-400 border border-blue-500/20">
+            Work
+          </div>
+
+        </div>
+
+        <div class="bg-zinc-900 rounded-2xl p-4 flex items-center justify-between">
+
+          <div>
+
+            <p class="font-semibold">
+              Friends
+            </p>
+
+            <p class="text-sm text-zinc-500 mt-1">
+              Bro see this meme 😂
+            </p>
+
+          </div>
+
+          <div class="tag bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">
+            Casual
+          </div>
+
+        </div>
+
+        <div class="bg-zinc-900 rounded-2xl p-4 flex items-center justify-between">
+
+          <div>
+
+            <p class="font-semibold">
+              Client
+            </p>
+
+            <p class="text-sm text-zinc-500 mt-1">
+              Need update today
+            </p>
+
+          </div>
+
+          <div class="tag bg-purple-500/10 text-purple-400 border border-purple-500/20">
+            Reply Later
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRIVACY -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="glass rounded-[40px] p-8 sm:p-14">
+
+    <div class="max-w-4xl">
+
+      <span class="text-sm uppercase tracking-[0.25em] text-green-400">
+        Biggest Challenge
+      </span>
+
+      <h2 class="mt-5 text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
+        The biggest concern may not be AI.
+        It may be privacy.
+      </h2>
+
+      <p class="mt-8 text-lg text-zinc-400 leading-relaxed">
+
+        Since WhatsApp is built around end-to-end encryption, users naturally question whether AI-based prioritization could affect privacy.
+
+      </p>
+
+      <p class="mt-6 text-lg text-zinc-400 leading-relaxed">
+
+        One possible future approach could be fully on-device AI processing without sending chats externally.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CHALLENGES -->
+
+<section class="max-w-7xl mx-auto px-4 sm:px-6 pb-24">
+
+  <div class="text-center mb-16">
+
+    <span class="text-sm uppercase tracking-[0.25em] text-green-400">
+      Real Challenges
+    </span>
+
+    <h2 class="mt-5 text-4xl sm:text-5xl font-bold tracking-tight">
+      The idea sounds simple.
+      The implementation isn’t.
+    </h2>
+
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+    <div class="glass rounded-[28px] p-8">
+
+      <h3 class="text-2xl font-bold">
+        On-device Performance
+      </h3>
+
+      <p class="mt-4 text-zinc-400 leading-relaxed">
+        Running lightweight AI models efficiently across millions of low-end devices is a major engineering challenge.
+      </p>
+
+    </div>
+
+    <div class="glass rounded-[28px] p-8">
+
+      <h3 class="text-2xl font-bold">
+        Multilingual Understanding
+      </h3>
+
+      <p class="mt-4 text-zinc-400 leading-relaxed">
+        Messages include slang, emojis, regional languages and mixed-language conversations.
+      </p>
+
+    </div>
+
+    <div class="glass rounded-[28px] p-8">
+
+      <h3 class="text-2xl font-bold">
+        UX Accuracy
+      </h3>
+
+      <p class="mt-4 text-zinc-400 leading-relaxed">
+        Incorrectly classifying important messages could quickly reduce user trust.
+      </p>
+
+    </div>
+
+    <div class="glass rounded-[28px] p-8">
+
+      <h3 class="text-2xl font-bold">
+        User Trust
+      </h3>
+
+      <p class="mt-4 text-zinc-400 leading-relaxed">
+        Even technically safe systems may fail if users feel uncomfortable about AI touching private conversations.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="border-t border-white/10 py-10">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+
+    <div>
+
+      <h3 class="text-xl font-bold">
+        hariscodes.in
+      </h3>
+
+      <p class="text-zinc-500 mt-2 text-sm">
+        Future systems • Product thinking • Human-centered UX
+      </p>
+
+    </div>
+
+    <div class="flex gap-6 text-sm text-zinc-500">
+
+      <a 
+        href="https://www.linkedin.com/in/harish-r-746089222/?_l=en_US" 
+        target="_blank"
+        class="hover:text-white transition"
+      >
+        LinkedIn
+      </a>
+
+      <a 
+        href="../about.html"
+        class="hover:text-white transition"
+      >
+        About
+      </a>
+
+      <a 
+        href="mailto:contact@harishcodes.in"
+        class="hover:text-white transition"
+      >
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
